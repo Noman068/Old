@@ -365,7 +365,7 @@ public class Admin : Employee, IAdmin
         if( Done > 0)
         {
             IActivityLogger activityLogger = new FileActivityLogger();
-            activityLogger.LogActivity("fee check", true, currentRole, Convert.ToString(DateTime.Now);
+            activityLogger.LogActivity("fee check", true, currentRole, Convert.ToString(DateTime.Now));
         }
 
     }
