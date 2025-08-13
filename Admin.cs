@@ -339,7 +339,6 @@ public class Admin : Employee, IAdmin
 
     public void FeeCalculator()
     {
-        int Done = 0;
         Console.Write("Enter Type = ");
         string type = Console.ReadLine();
         type = Validator.TypeValidator(type);
@@ -351,7 +350,6 @@ public class Admin : Employee, IAdmin
 
             if (servicePrices.TryGetValue(type, out int price))
             {
-                Done++;
                 Console.WriteLine("***************************");
                 Console.WriteLine($"\nPrice accessed by Admin: {price}");
                 Console.WriteLine("***************************");
@@ -359,15 +357,8 @@ public class Admin : Employee, IAdmin
         }
         catch (Exception ex)
         {
-            
             Console.WriteLine($"Error reading fees: {ex.Message}");
         }
-        if( Done > 0)
-        {
-            IActivityLogger activityLogger = new FileActivityLogger();
-            activityLogger.LogActivity("fee check", true, currentRole, Convert.ToString(DateTime.Now));
-        }
-
     }
 
 
